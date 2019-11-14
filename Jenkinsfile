@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests '
+                sh 'mvn clean package -DskipTests'
+                sh 'docker-compose build'
+                sh 'docker-compose up'
             }
         }
         stage('Test') {
@@ -14,6 +16,11 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
+            }
+        }
+        stage('Deploy') {
+            steps{
+                echo 'deploy'
             }
         }
     }
