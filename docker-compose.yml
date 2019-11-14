@@ -24,7 +24,7 @@ services:
     ports:
       - 8081:8081
     networks:
-      - leaveword-host
+      - leaveword-network
 
 networks:
   leaveword-network:
