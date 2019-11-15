@@ -12,8 +12,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: leaveword
-    networks:
-      - leaveword-network
+
 
   leaveword:
     build: ../LeaveWord
@@ -23,8 +22,7 @@ services:
       - leaveword-mysql
     ports:
       - 8081:8081
-    networks:
-      - leaveword-network
+
 
 networks:
   leaveword-network:
